@@ -5,7 +5,7 @@ services:
       context: ./flask_api
     image: my_monitoring_app_image_flask:latest
     volumes:
-      - ./flask_api:/app
+      - ./flask_api:/app      ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
     ports:
       - "5000:5000"
     environment:
