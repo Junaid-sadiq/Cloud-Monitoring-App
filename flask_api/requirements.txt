@@ -1,0 +1,10 @@
+psutil
+Flask
+MarkupSafe
+Werkzeug
+itsdangerous
+plotly
+tenacity
+boto3
+kubernetes
+flask-cors

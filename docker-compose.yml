@@ -1,0 +1,31 @@
+version: "3.8"
+services:
+  flask:
+    build:
+      context: ./flask_api
+    image: my_monitoring_app_image_flask:latest
+    volumes:
+      - ./flask_api:/app
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+
+  nextjs:
+    build:
+      context: ./my-metric-dashboard
+    image: my_monitoring_app_image_nextjs:latest
+    volumes:
+      - ./my-metric-dashboard:/app
+      - node_modules:/app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=3000
+    depends_on:
+      - flask
+
+volumes:
+  node_modules:
